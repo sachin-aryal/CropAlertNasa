@@ -14,21 +14,21 @@
 
 <body>
 <div class="container">
-<h1>${ActionName}</h1>
-<g:if test="${ActionName.equals("map")}">
-    <div id="map">
-        This is Map
-    </div>
-</g:if>
-<g:elseif test="${ActionName.equals("graph")}">
-    <div id="Chart">
+    <h1>${ActionName}</h1>
+    <g:if test="${ActionName.equals("map")}">
+        <div id="map">
+            This is Map
+        </div>
+    </g:if>
+    <g:elseif test="${ActionName.equals("graph")}">
+        <div id="Chart">
 
-    </div>
-</g:elseif>
-<g:else>
-    <div id="tableData">
-        <table class="table table-responsive table-hover table-condensed table-bordered" style="overflow: scroll">
-            <thead style="font-weight: bold;">
+        </div>
+    </g:elseif>
+    <g:else>
+        <div id="tableData">
+            <table class="table table-responsive table-hover table-condensed table-bordered" style="overflow: scroll">
+                <thead style="font-weight: bold;">
                 <tr>
                     <td>Crop Name</td>
                     <td>Disease</td>
@@ -39,27 +39,27 @@
                     <td>Start Date</td>
                     <td>Description</td>
                 </tr>
-            </thead>
-            <tbody>
-        <g:each in="${cropDetail}" var="crop">
-            <tr>
-                <td>${crop.cropName}</td>
-                <td>${crop.disease}</td>
-                <td>${crop.affected}</td>
-                <td>${crop.pesticide}</td>
-                <td>${crop.improve}</td>
-                <td>${crop.location}</td>
-                <td><g:formatDate format="yyyy-MM-dd" date="${crop.startDate}"/></td>
-                <td>${crop.description}</td>
-            </tr>
-        </g:each>
-            </tbody>
-        </table>
-    </div>
-</g:else>
+                </thead>
+                <tbody style="overflow-x: scroll;">
+                <g:each in="${cropDetail}" var="crop">
+                    <tr>
+                        <td>${crop.cropName}</td>
+                        <td>${crop.disease}</td>
+                        <td>${crop.affected}</td>
+                        <td>${crop.pesticide}</td>
+                        <td>${crop.improve}</td>
+                        <td>${crop.location}</td>
+                        <td><g:formatDate format="yyyy-MM-dd" date="${crop.startDate}"/></td>
+                        <td>${crop.description}</td>
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
+    </g:else>
 </div>
 <g:if test="${ActionName.equals("graph")}">
-<g:javascript>
+    <g:javascript>
     var myData=new Array();
     var data="${cropDetail.affected}".split(',');
     var i;
@@ -96,20 +96,20 @@ myChart.setTextPaddingLeft(105);
 myChart.setTextPaddingBottom(12);
 myChart.setLineSpeed(90);
 myChart.setLineWidth(3);
-%{--myChart.setBackgroundImage('path/background.jpg');--}%
+    %{--myChart.setBackgroundImage('path/background.jpg');--}%
     %{--for(i=0;i<16;i++){--}%
-            %{--if(data[i]!=null){--}%
-                %{--myChart.setTooltip([i+1,semester[i].replace('[', '').replace(']', '')+"->"+examination[i].replace('[', '')--}%
-                %{--.replace(']', '')+" Percentage:"+data[i].replace('[', '').replace(']','')]);--}%
-            %{--}--}%
-        %{--}--}%
-    myChart.setTooltipBackground('#fff');
-    myChart.setTooltipFontSize(18);
-    //myChart.setTooltipSize(14);
-    //myChart.setLegendForLine(1,sachin);
-    myChart.draw();
+    %{--if(data[i]!=null){--}%
+    %{--myChart.setTooltip([i+1,semester[i].replace('[', '').replace(']', '')+"->"+examination[i].replace('[', '')--}%
+    %{--.replace(']', '')+" Percentage:"+data[i].replace('[', '').replace(']','')]);--}%
+    %{--}--}%
+    %{--}--}%
+        myChart.setTooltipBackground('#fff');
+        myChart.setTooltipFontSize(18);
+        //myChart.setTooltipSize(14);
+        //myChart.setLegendForLine(1,sachin);
+        myChart.draw();
 
-</g:javascript>
-    </g:if>
+    </g:javascript>
+</g:if>
 </body>
 </html>
