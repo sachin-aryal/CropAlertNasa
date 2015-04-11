@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<div class="container">
 <h1>${ActionName}</h1>
 <g:if test="${ActionName.equals("map")}">
     <div id="map">
@@ -26,8 +27,8 @@
 </g:elseif>
 <g:else>
     <div id="tableData">
-        <table>
-            <thead>
+        <table class="table table-responsive table-hover table-condensed table-bordered" style="overflow: scroll">
+            <thead style="font-weight: bold;">
                 <tr>
                     <td>Crop Name</td>
                     <td>Disease</td>
@@ -57,6 +58,7 @@
         </table>
     </div>
 </g:else>
+</div>
 <g:if test="${ActionName.equals("graph")}">
 <g:javascript>
     var myData=new Array();
@@ -111,6 +113,6 @@ myChart.setLineWidth(3);
     myChart.draw();
 
 </g:javascript>
-</g:if>
+    </g:if>
 </body>
 </html>
