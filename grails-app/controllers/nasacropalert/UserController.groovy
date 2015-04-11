@@ -6,7 +6,6 @@ class UserController {
     }
 
    def login(){
-
     }
     def loginValidator(){
         def user=User.findByUserNameAndPassword(params.userName,params.password)

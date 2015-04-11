@@ -58,14 +58,14 @@
 				<li><a href="#"> Contact</a></li>
 			</ul>
 			<div class="login-btn" id="login">
-				<li class="pull-right"><button class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</button></li>
-				<li class="pull-right"><button class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</button></li>
+				<li class="pull-right"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
+				<li class="pull-right"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
 			</div>
 		</div> <!--navigation end -->
 	</div>
 </div>
 
-
+'
 <div class="container">
 	<ul class="nav nav-tabs">
 		<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>

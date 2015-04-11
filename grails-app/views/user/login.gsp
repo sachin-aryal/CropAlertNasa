@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 </head>
 <body>
-<p> Delete THis </p>
     <g:form action="loginValidator" method="post" >
    Username <input type="text" name="userName" value="userName" >
    Password <input type="password" name="password" value="password">
