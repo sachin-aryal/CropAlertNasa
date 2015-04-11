@@ -33,7 +33,8 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <g:form url="[resource: cropInstance, action: 'update']" method="PUT" enctype="multipart/form-data">
+    <g:form url="[resource: cropInstance, action: 'update']" method="POST" enctype="multipart/form-data">
+        <g:hiddenField name="id" value="${cropInstance?.id}" />
         <g:hiddenField name="version" value="${cropInstance?.version}"/>
         <fieldset class="form">
             <g:render template="form"/>

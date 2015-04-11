@@ -15,6 +15,5 @@
 	<title>Crop Alert</title>
 </head>
 <body>
-
 </body>
 </html>

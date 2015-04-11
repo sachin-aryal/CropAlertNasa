@@ -25,15 +25,17 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <ol class="property-list crop">
 
-        <g:if test="${cropInstance?.image}">
-            <li class="fieldcontain">
-                <span id="image-label" class="property-label"><g:message code="crop.image.label"
-                                                                         default="Image"/></span>
-
-            </li>
-        </g:if>
+      <g:fieldValue field="id" bean="${cropInstance}"/>
+         <img src = "${createLink(controller:'crop', action: 'imageShow', id:"${cropInstance.id}")}" width="300"/>
+        <div id="show-file" class="content scaffold-show" role="main">
+            <h1><g:message code="default.show.label" args="[entityName]"/></h1>
+                <g:if test="${cropInstance?.image}">
+                    <li class="fieldcontain">
+                        <span id="image-label" class="property-label"><g:message code="crop.image.label"
+                                                                                       default="Image"/></span>
+                    </li>
+                </g:if>
 
         <g:if test="${cropInstance?.affected}">
             <li class="fieldcontain">
@@ -132,17 +134,18 @@
 
             </li>
         </g:if>
+        <g:if test="${userTrue}">
+            <g:form url="[resource: cropInstance, action: 'delete']" method="DELETE">
+                <fieldset class="buttons">
+                    <g:link class="edit" action="edit" resource="${cropInstance}"><g:message code="default.button.edit.label"
+                                                                                             default="Edit"/></g:link>
+                    <g:actionSubmit class="delete" action="delete"
+                                    value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
+                </fieldset>
+            </g:form>
+        </g:if>
 
-    </ol>
-    <g:form url="[resource: cropInstance, action: 'delete']" method="DELETE">
-        <fieldset class="buttons">
-            <g:link class="edit" action="edit" resource="${cropInstance}"><g:message code="default.button.edit.label"
-                                                                                     default="Edit"/></g:link>
-            <g:actionSubmit class="delete" action="delete"
-                            value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-                            onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
-        </fieldset>
-    </g:form>
 </div>
 </body>
 </html>

@@ -42,8 +42,8 @@
             </thead>
             <tbody>
         <g:each in="${cropDetail}" var="crop">
-            <tr><td>${crop.id}</td>
-                <td><g:link controller="crop" action="show" params="${crop.id}"> ${crop.cropName}</g:link></td>
+            <tr>
+                <td>${crop.cropName}</td>
                 <td>${crop.disease}</td>
                 <td>${crop.affected}</td>
                 <td>${crop.pesticide}</td>

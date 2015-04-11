@@ -28,6 +28,7 @@
 		$('ul.nav a').filter(function() {
 			return this.href == url;
 		}).parent().addClass('active');
+
 	</g:javascript>
 	<r:layoutResources />
 </head>
@@ -56,33 +57,43 @@
 		<!-- navigation menu -->
 		<div class="collapse navbar-collapse navHeaderCollapse">
 			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a href="#" > Home</a></li>
+				<li><a href="#" > Home</a></li>
 				<li><a href="#"> Blog</a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Social Media<b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Google</a> </li>
-						<li><a href="#">Facebook</a> </li>
+						<li><a href="#"></a> </li>
+						<li><a href="#"></a> </li>
 					</ul>
 				</li>
 				<li><a href="#"> About</a></li>
 				<li><a href="#"> Contact</a></li>
 			</ul>
 			<div class="login-btn" id="login">
-				<li class="pull-right"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
-				<li class="pull-right"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
+				<li class="pull-right" style="list-style: none;"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
+				<li class="pull-right" style="list-style: none; margin-right: 10px;	"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
 			</div>
 		</div> <!--navigation end -->
 	</div>
 </div>
 
 <div class="container">
-	<ul class="nav nav-tabs">
+	<ul class=" nav nav-tabs">
 		<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'graph']" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'table']" data-toggle="tab"><i class="fa fa-table fa-2x"></i> Table</g:link></li>
 	</ul>
 </div>
+%{--
+<g:form action="register" method="post" >
+	Name: <input type="text" name="name" value="name">
+	Email Address: <input type="text" name="email" value="email">
+	Country: <input type="text" name="country" value="country">
+	Phone: <input type ="number" name="phone" value="phone">
+	Username: <input type="text" name="userName" value="userName">
+	Password: <input type="password" name="password" value="password">
+	<input type="submit" value="Register" />
+</g:form>--}%
 
 <div class='navbar navbar-inverse navbar-fixed-bottom wrapper wet-asphalt' style="margin-bottom: -17px;">
 	CropAlert System &reg;

@@ -16,15 +16,19 @@ class CropController {
         respond Crop.list(params), model: [cropInstanceCount: Crop.count()]
     }
 
-    def show(Crop cropInstance) {
-        respond cropInstance
+    def show(Long id) {
+        def cropInstance = Crop.get(id)
+        def userTrue = false
+        if(session.getAttribute("userId")==id){
+            userTrue=true
+        }
+        [cropInstance:cropInstance,userTrue: userTrue]
     }
     def getData(Integer max){
         params.max = Math.min(max ?: 10, 1000)
         def ActionName=params.Action
         def cropDetail
         def userTrue=false
-        println session.getAttribute("userId")
         if(session.getAttribute("userId")){
             userTrue=true
             render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.findByUser(User.findById(session.getAttribute("userId")),params),cropDetailTotal: Crop.findAllByUser(User.findById(session.getAttribute("userId"))).size(),userTrue:userTrue]
@@ -35,6 +39,11 @@ class CropController {
     }
     def create() {
         respond new Crop(params)
+    }
+    def imageShow(){
+        def imageInstance = Crop.get(params.id)
+        response.outputStream<<imageInstance.image
+        response.outputStream.flush()
     }
 
     @Transactional

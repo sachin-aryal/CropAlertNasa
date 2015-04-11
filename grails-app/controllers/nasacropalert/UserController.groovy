@@ -8,21 +8,13 @@ class UserController {
    def login(){
     }
     def loginValidator(){
-        String userName=params.userName
-        String password=params.password
         def user=User.findByUserNameAndPassword(params.userName,params.password)
         if(user){
             session.setAttribute("userId",user.id)
             session.setAttribute("userName",user.userName)
-            redirect(action: 'userDashboard')
-        }else if(userName.equalsIgnoreCase("admin")&&password.equalsIgnoreCase("admin")){
-            session.setAttribute("Role","admin")
-            session.setAttribute("userName","Admin")
-            redirect(action: 'adminDashboard')
-        }
-        else{
-            flash.message="Invalid Username and Password do not match!!"
-            render view:'login'
+            redirect(controller:'crop', action: 'create')
+        }else{
+            render view:'index',model:['popUp',"login"]
         }
     }
     def signUp(){
@@ -37,10 +29,10 @@ class UserController {
         String password=params.password
         if(User.findByUserName(userName)){
             flash.message="Username Already Exits"
-            render(view: 'index')
+            redirect(view: 'index',model:['popUp',"register"])
         }else if(User.findByEmailAddress(email)){
             flash.message="Email Already Exits"
-            render(view: 'index')
+            redirect(view: 'index',model:['popUp',"register"])
         }
         else{
             def user=new User()
@@ -51,11 +43,12 @@ class UserController {
             user.userName=userName
             user.password=password
             if (!user.save(flush: true)) {
-                flash.message="!sorry something went wrong"
-                render(view: "create")
+                println "Creating New user"
+                /*render(view: "create", model: [user: user])*/
+                render(controller:'crop', action:'viewData')
                 return
             }
-            render view:'login'
+            render view:'index',model:['popUp',"login"]
         }
 
     }
