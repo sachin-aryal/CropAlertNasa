@@ -55,7 +55,12 @@
         </g:each>
             </tbody>
         </table>
-    </div>
+      %{--  <div class="pagination">
+            <g:paginate next="Next" prev="Back" controller="crop" action="getData"
+                        total="${CropDetailTotal}" params="${params}"/>
+        </div>--}%
+    </div><g:if test="${userTrue}">
+    <g:link controller="crop" action="getData">Edit</g:link></g:if>
 </g:else>
 </div>
 <g:if test="${ActionName.equals("graph")}">
@@ -67,7 +72,7 @@
     date="${cropDetail.startDate})".split(',')
     for(i=0;i<(data.length);i++){
         if(data[i]!=null){
-            myData.push([date[i].replace('[', '').replace(']',''),parseFloat(data[i].replace('[', '').replace(']',''))]);
+            myData.push([date[i].replace('[', '').replace(']',""),parseFloat(data[i].replace('[', '').replace(']',''))]);
         }
     }
 var myChart = new JSChart('Chart', 'line');

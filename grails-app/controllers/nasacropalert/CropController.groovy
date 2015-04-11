@@ -23,10 +23,14 @@ class CropController {
         params.max = Math.min(max ?: 10, 1000)
         def ActionName=params.Action
         def cropDetail
+        def userTrue=false
+        println session.getAttribute("userId")
         if(session.getAttribute("userId")){
-            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.findByUser(User.findAllById(session.getAttribute("userId"),params),cropDetailTotal: Crop.findByUser(User.findAllById(session.getAttribute("userId")).size()))]
+            userTrue=true
+            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.findByUser(User.findById(session.getAttribute("userId")),params),cropDetailTotal: Crop.findAllByUser(User.findById(session.getAttribute("userId"))).size(),userTrue:userTrue]
         }else{
-            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.list(params),CropDetailTotal:Crop.list().size()]
+            userTrue=false
+            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.list(params),CropDetailTotal:Crop.list().size(),userTrue:userTrue]
         }
     }
     def create() {

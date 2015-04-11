@@ -9,13 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type"
-          content="text/html; charset=UTF-8"/>
-    <meta name="layout" content="main">
-    <title>Sign Up</title>
+	<meta http-equiv="Content-Type"
+		  content="text/html; charset=UTF-8"/>
+	<meta name="layout" content="main">
+	<title>Crop Alert</title>
 </head>
 <body>
 
-</div>
 </body>
 </html>

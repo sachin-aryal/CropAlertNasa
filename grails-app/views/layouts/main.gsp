@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'font-awesome.css')}" type="text/css">
 	<g:layoutHead/>
+
 	<g:javascript src="bootstrap.min.js"/>
 	<g:javascript src="jquery-1.11.1.js"/>
 	<g:javascript src="jscharts.js"/>
@@ -33,8 +34,12 @@
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top wet-asphalt">
 	<div class="container">
-
-		<a href="" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></a>
+		<g:if test="${session.getAttribute("Role".equalsIgnoreCase("admin"))}">
+		<g:link controller="user" action="adminDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
+		</g:if>
+		<g:else test="${session.getAttribute("Role".equalsIgnoreCase("user"))}">
+			<g:link controller="user" action="userDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
+		</g:else>
 		<!-- hamburger button for responsive-->
 		<button class="navbar-toggle" data-toggle="collapse" data-target = ".navHeaderCollapse">
 			<span class="icon-bar"></span>

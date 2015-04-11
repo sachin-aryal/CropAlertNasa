@@ -10,7 +10,6 @@ class UserController {
     def loginValidator(){
         def user=User.findByUserNameAndPassword(params.userName,params.password)
         if(user){
-            println("user id"+user.id)
             session.setAttribute("userId",user.id)
             session.setAttribute("userName",user.userName)
             redirect(controller:'crop', action: 'create')
@@ -53,7 +52,15 @@ class UserController {
         }
 
     }
-    def userHomePage(){
+    def userDashboard(){
 
+    }
+    def adminDashboard(){
+
+    }
+    def logout(){
+        session.setAttribute("userId",null)
+        session.setAttribute("userName",null)
+        redirect(action: 'index')
     }
 }
