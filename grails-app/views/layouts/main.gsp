@@ -34,13 +34,18 @@
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top wet-asphalt">
 	<div class="container">
-		<g:if test="${session.getAttribute("Role".equalsIgnoreCase("admin"))}">
-		<g:link controller="user" action="adminDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
+		<g:if test="${session.getAttribute("Role")}">
+			<g:if test="${session.getAttribute("Role").equals("admin")}">
+				<g:link controller="user" action="adminDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
+			</g:if>
+			<g:elseif test="${session.getAttribute("Role").equals("user")}">
+				<g:link controller="user" action="userDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
+			</g:elseif>
 		</g:if>
-		<g:else test="${session.getAttribute("Role".equalsIgnoreCase("user"))}">
-			<g:link controller="user" action="userDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
+		<g:else>
+			<g:link controller="user" action="index" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
 		</g:else>
-		<!-- hamburger button for responsive-->
+	<!-- hamburger button for responsive-->
 		<button class="navbar-toggle" data-toggle="collapse" data-target = ".navHeaderCollapse">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
