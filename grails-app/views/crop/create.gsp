@@ -11,7 +11,7 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <g:form url="[resource: cropInstance, action: 'save']" enctype="multipart/form-data">
+    <g:form method="post" url="[resource: cropInstance, action: 'save']" enctype="multipart/form-data">
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>
