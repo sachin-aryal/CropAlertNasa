@@ -137,6 +137,7 @@
         <g:else>
             <g:hiddenField name="commentator" value="Anonymous"/>
         </g:else>
+        <g:hiddenField name="cropId" value="${cropInstance.id}"/>
         <g:textField name="comment"/>
         <g:submitButton name="Comment">Comment</g:submitButton>
     </g:form>

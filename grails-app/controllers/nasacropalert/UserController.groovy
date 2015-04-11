@@ -11,14 +11,15 @@ class UserController {
         String userName=params.userName
         String password=params.password
         def user=User.findByUserNameAndPassword(params.userName,params.password)
-        if(user){
-            session.setAttribute("userId",user.id)
-            session.setAttribute("userName",user.userName)
-            redirect(action: 'userDashboard')
-        }else if(userName.equalsIgnoreCase("admin")&&password.equalsIgnoreCase("admin")){
+        if(userName.equalsIgnoreCase("admin")&&password.equalsIgnoreCase("admin")){
             session.setAttribute("Role","admin")
             session.setAttribute("userName","Admin")
             redirect(action: 'adminDashboard')
+        }
+        else if(user){
+            session.setAttribute("userId",user.id)
+            session.setAttribute("userName",user.userName)
+            redirect(action: 'userDashboard')
         }
         else{
             flash.message="Invalid Username and Password do not match!!"
