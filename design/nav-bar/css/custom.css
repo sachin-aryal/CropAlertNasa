@@ -1,0 +1,40 @@
+body{
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	padding-top: 70px;
+}
+
+.wrapper {
+	padding: 7px;
+	height: auto;
+	color: #ffffff;
+	text-align: center;
+}
+
+footer{
+	background-color: #454544;
+	height: 1px;
+}
+.wet-asphalt {
+	background-color: #34495e;
+}
+.wet-asphalt a:not(.btn) {
+	color: #bdc3c7;
+}
+.wet-asphalt a:not(.btn):hover {
+	color: #d9534f;
+}
+.wet-asphalt h6{
+	color: #fff;
+}
+.wet-asphalt small{
+	color: rgba(255, 255, 255, 0.8);
+}
+.login-btn {
+	margin: 8px;
+}
+.btn-success {
+	color: #ffffff;
+	background-color: #34495e;
+}
