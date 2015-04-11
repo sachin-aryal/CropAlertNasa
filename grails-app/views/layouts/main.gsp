@@ -42,6 +42,7 @@
 				<g:link controller="user" action="userDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
 			</g:elseif>
 		</g:if>
+
 		<g:else>
 			<g:link controller="user" action="index" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
 		</g:else>
