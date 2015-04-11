@@ -13,54 +13,12 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'font-awesome.css')}" type="text/css">
+	<g:layoutHead/>
 	<g:javascript src="bootstrap.min.js"/>
 	<g:javascript src="jquery-1.11.1.js"/>
-	<g:layoutHead/>
 	<r:layoutResources />
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top wet-asphalt">
-	<div class="container">
-
-		<a href="" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></a>
-		<!-- hamburger button for responsive-->
-		<button class="navbar-toggle" data-toggle="collapse" data-target = ".navHeaderCollapse">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-
-		<!-- navigation menu -->
-		<div class="collapse navbar-collapse navHeaderCollapse">
-			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a href="#" > Home</a></li>
-				<li><a href="#"> Blog</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Social Media<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Google</a> </li>
-						<li><a href="#">Facebook</a> </li>
-					</ul>
-				</li>
-				<li><a href="#"> About</a></li>
-				<li><a href="#"> Contact</a></li>
-			</ul>
-			<div class="login-btn" id="login">
-				<li class="pull-right"><button class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</button></li>
-				<li class="pull-right"><button class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</button></li>
-			</div>
-		</div> <!--navigation end -->
-	</div>
-</div>
-
-
-<div class="container">
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#maps" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</a></li>
-		<li><a href="#graphs" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</a></li>
-	</ul>
-</div>
-
 
 <div class='navbar navbar-inverse navbar-fixed-bottom wrapper wet-asphalt' style="margin-bottom: -17px;">
 	CropAlert System &reg;
