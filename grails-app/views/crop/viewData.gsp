@@ -56,6 +56,7 @@
         </table>
     </div>
 </g:else>
+<g:if test="${ActionName.equals("graph")}">
 <g:javascript>
     var myData=new Array();
     var data="${cropDetail.affected}".split(',');
@@ -109,5 +110,6 @@ myChart.setLineWidth(3);
     myChart.draw();
 
 </g:javascript>
+</g:if>
 </body>
 </html>
