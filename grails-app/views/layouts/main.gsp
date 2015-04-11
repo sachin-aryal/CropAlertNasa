@@ -58,24 +58,17 @@
 			<ul class="nav navbar-nav navbar-left">
 				<li class="active"><a href="#" > Home</a></li>
 				<li><a href="#"> Blog</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Social Media<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Google</a> </li>
-						<li><a href="#">Facebook</a> </li>
-					</ul>
-				</li>
 				<li><a href="#"> About</a></li>
 				<li><a href="#"> Contact</a></li>
 			</ul>
 			<div class="login-btn" id="login">
 				<g:if test="${session.getAttribute("Role")}">
-				<li class="pull-right"><g:link controller="user" action="logout" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Logout</g:link></li>
+				<li class="pull-right" style="list-style: none;"><button class="btn btn-success" data-toggle="modal" data-target="#myModal"> <g:link controller="user" action="logout"> <span class="glyphicon glyphicon-log-in"></span> Logout</g:link></button></li>
 				</g:if>
 				<g:else>
-					<li class="pull-right"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
+					<li class="pull-right" style="list-style: none; margin-right: 10px;"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
 				</g:else>
-				<li class="pull-right"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
+				<li class="pull-right" style="list-style: none;"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
 			</div>
 		</div> <!--navigation end -->
 	</div>
@@ -89,7 +82,7 @@
 	</ul>
 </div>
 
-<div class='navbar navbar-inverse navbar-fixed-bottom wrapper wet-asphalt' style="margin-bottom: -17px;">
+<div id="footer">
 	CropAlert System &reg;
 </div>
 

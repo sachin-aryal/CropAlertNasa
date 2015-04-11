@@ -12,17 +12,55 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main">
-    <title>Sign Up</title>
+    <title>Register</title>
+    <script>
+        window.onload= function(){
+            var x = document.getElementById('navTabs');
+            x.style.display='none';
+        };
+
+        var y = document.getElementById('reg');
+        y.onclick= function () {
+            alert('Thank you for your registration. Please wait for approval.');
+        }
+
+    </script>
 </head>
 <body>
-<g:form controller="user" action="register" method="post" >
-    Name: <input type="text" name="name" value="name">
-    Email Address: <input type="text" name="email" value="email">
-    Country: <input type="text" name="country" value="country">
-    Phone: <input type ="number" name="phone" value="phone">
-    Username: <input type="text" name="userName" value="userName">
-    Password: <input type="password" name="password" value="password">
-    <input type="submit" value="Register" />
-</g:form>
+<div class="container">
+    <h1 style="text-align: center;">Fill up the form to register</h1>
+    <div class="registrationForm">
+        <form>
+            <g:form controller="user" action="register" method="post" >
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="FullName" name="name" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="text" class="form-control" id="Email" name="email" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                    <label for="city">Country</label>
+                    <input type="text" class="form-control" id="city" name="country" placeholder="Enter Country Name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone No.">
+                </div>
+                <div class="form-group">
+                    <label for="userName">Username</label>
+                    <input type="text" class="form-control" id="userName" name="username" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <button id="reg" type="submit"  class="btn btn-default">Submit</button>
+            </g:form>
+        </form>
+    </div>
+</div>
 </body>
 </html>

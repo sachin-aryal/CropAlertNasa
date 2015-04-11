@@ -39,3 +39,28 @@ footer{
 	color: #ffffff;
 	background-color: #34495e;
 }
+.registrationForm{
+	height: 90px;
+	width: 500px;
+}
+#footer {
+	width:100%;
+	height:10px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:none;
+	text-align: center;
+	border-top: groove 1px;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	background:#ededed;
+	padding:10px;
+}
+#content {
+	padding-bottom:100px; /* Height of the footer element */
+}
