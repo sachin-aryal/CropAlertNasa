@@ -69,7 +69,12 @@
 				<li><a href="#"> Contact</a></li>
 			</ul>
 			<div class="login-btn" id="login">
-				<li class="pull-right"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
+				<g:if test="${session.getAttribute("Role")}">
+				<li class="pull-right"><g:link controller="user" action="logout" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Logout</g:link></li>
+				</g:if>
+				<g:else>
+					<li class="pull-right"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
+				</g:else>
 				<li class="pull-right"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
 			</div>
 		</div> <!--navigation end -->

@@ -8,13 +8,21 @@ class UserController {
    def login(){
     }
     def loginValidator(){
+        String userName=params.userName
+        String password=params.password
         def user=User.findByUserNameAndPassword(params.userName,params.password)
         if(user){
             session.setAttribute("userId",user.id)
             session.setAttribute("userName",user.userName)
-            redirect(controller:'crop', action: 'create')
-        }else{
-            render view:'index',model:['popUp',"login"]
+            redirect(action: 'userDashboard')
+        }else if(userName.equalsIgnoreCase("admin")&&password.equalsIgnoreCase("admin")){
+            session.setAttribute("Role","admin")
+            session.setAttribute("userName","Admin")
+            redirect(action: 'adminDashboard')
+        }
+        else{
+            flash.message="Invalid Username and Password do not match!!"
+            render view:'login'
         }
     }
     def signUp(){
@@ -29,10 +37,10 @@ class UserController {
         String password=params.password
         if(User.findByUserName(userName)){
             flash.message="Username Already Exits"
-            redirect(view: 'index',model:['popUp',"register"])
+            render(view: 'index')
         }else if(User.findByEmailAddress(email)){
             flash.message="Email Already Exits"
-            redirect(view: 'index',model:['popUp',"register"])
+            render(view: 'index')
         }
         else{
             def user=new User()
@@ -43,12 +51,11 @@ class UserController {
             user.userName=userName
             user.password=password
             if (!user.save(flush: true)) {
-                println "Creating New user"
-                /*render(view: "create", model: [user: user])*/
-                render(controller:'crop', action:'viewData')
+                flash.message="!sorry something went wrong"
+                render(view: "create")
                 return
             }
-            render view:'index',model:['popUp',"login"]
+            render view:'login'
         }
 
     }

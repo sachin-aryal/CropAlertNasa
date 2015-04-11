@@ -11,14 +11,17 @@
 <head>
     <meta http-equiv="Content-Type"
           content="text/html; charset=UTF-8"/>
+    <meta name="layout" content="main"/>
     <title>Login</title>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 </head>
 <body>
     <g:form action="loginValidator" method="post" >
-   Username <input type="text" name="userName" value="userName" >
-   Password <input type="password" name="password" value="password">
-        <input type="submit" value="Register" />
+   Username <input type="text" name="userName" placeholder="" >
+   Password <input type="password" name="password" placeholder="">
+        <input type="submit" value="Login" />
+        <g:if test="${flash.message}">
+            <p><u>${flash.message}</u></p>
+        </g:if>
     </g:form>
 </div>
 </div>
