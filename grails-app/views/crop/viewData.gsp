@@ -40,6 +40,7 @@
                 </tr>
             </thead>
             <tbody>
+
         <g:each in="${cropDetail}" var="crop">
             <tr>
                 <td>${crop.cropName}</td>
