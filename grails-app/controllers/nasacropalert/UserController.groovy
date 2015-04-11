@@ -3,6 +3,7 @@ package nasacropalert
 class UserController {
     static allowedMethods = [register: "POST", loginValidator: "POST", logout: "POST"]
     def index() {
+        render view:'index'
     }
 
    def login(){
