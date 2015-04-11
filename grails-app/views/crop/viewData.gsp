@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title></title>
+    <meta name="layout" content="main"/>
+    <title>Crop Alert</title>
 </head>
 
 <body>
@@ -20,13 +21,93 @@
 </g:if>
 <g:elseif test="${ActionName.equals("graph")}">
     <div id="Chart">
-        This is chart
+
     </div>
 </g:elseif>
 <g:else>
     <div id="tableData">
-
+        <table>
+            <thead>
+                <tr>
+                    <td>Crop Name</td>
+                    <td>Disease</td>
+                    <td>Affected %</td>
+                    <td>Pesticide</td>
+                    <td>Improve</td>
+                    <td>Location</td>
+                    <td>Start Date</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
+            <tbody>
+        <g:each in="${cropDetail}" var="crop">
+            <tr>
+                <td>${crop.cropName}</td>
+                <td>${crop.disease}</td>
+                <td>${crop.affected}</td>
+                <td>${crop.pesticide}</td>
+                <td>${crop.improve}</td>
+                <td>${crop.location}</td>
+                <td><g:formatDate format="yyyy-MM-dd" date="${crop.startDate}"/></td>
+                <td>${crop.description}</td>
+            </tr>
+        </g:each>
+            </tbody>
+        </table>
     </div>
 </g:else>
+<g:javascript>
+    var myData=new Array();
+    var data="${cropDetail.affected}".split(',');
+    %{--var semester="${disease}".split(',');--}%
+    %{--var examination="${pesticide}".split(',');--}%
+    var i;
+    var date
+    date="${cropDetail.startDate})".split(',')
+    for(i=0;i<(data.length);i++){
+        if(data[i]!=null){
+            myData.push([date[i].replace('[', '').replace(']',''),parseFloat(data[i].replace('[', '').replace(']',''))]);
+        }
+    }
+var myChart = new JSChart('Chart', 'line');
+myChart.setDataArray(myData);
+myChart.setAxisNameFontSize(13);
+myChart.setAxisValuesFontSize(11);
+myChart.setAxisNameX('Disease');
+myChart.setAxisNameY('Affected');
+myChart.setAxisNameColor('#787878');
+myChart.setAxisValuesNumberX(data.length);
+//myChart.setAxisValuesNumberY(10);
+myChart.setAxisValuesColor('#38a4d9');
+myChart.setAxisColor('#38a4d9');
+myChart.setLineColor('#1c4877');
+myChart.setTitle('Disease Analysis');
+myChart.setTitleFontSize(20);
+myChart.setTitleColor("#1c4877");
+myChart.setGraphExtend(true);
+myChart.setGridColor('#38a4d9');
+myChart.setSize(960, 400);
+myChart.setAxisPaddingLeft(140);
+myChart.setAxisPaddingRight(140);
+myChart.setAxisPaddingTop(60);
+myChart.setAxisPaddingBottom(45);
+myChart.setTextPaddingLeft(105);
+myChart.setTextPaddingBottom(12);
+myChart.setLineSpeed(90);
+myChart.setLineWidth(3);
+%{--myChart.setBackgroundImage('path/background.jpg');--}%
+    %{--for(i=0;i<16;i++){--}%
+            %{--if(data[i]!=null){--}%
+                %{--myChart.setTooltip([i+1,semester[i].replace('[', '').replace(']', '')+"->"+examination[i].replace('[', '')--}%
+                %{--.replace(']', '')+" Percentage:"+data[i].replace('[', '').replace(']','')]);--}%
+            %{--}--}%
+        %{--}--}%
+    myChart.setTooltipBackground('#fff');
+    myChart.setTooltipFontSize(18);
+    //myChart.setTooltipSize(14);
+    //myChart.setLegendForLine(1,sachin);
+    myChart.draw();
+
+</g:javascript>
 </body>
 </html>
