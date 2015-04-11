@@ -30,20 +30,19 @@
 <div class="container">
     <h1 style="text-align: center;">Fill up the form to register</h1>
     <div class="registrationForm">
-        <form>
             <g:form controller="user" action="register" method="post" >
 
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="FullName" name="name" placeholder="Full Name">
+                    <input type="text" class="form-control" id="FullName" name="name" placeholder="Full Name" required="">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="text" class="form-control" id="Email" name="email" placeholder="Enter Email">
+                    <input type="text" class="form-control" id="Email" name="email" placeholder="Enter Email" required="">
                 </div>
                 <div class="form-group">
                     <label for="city">Country</label>
-                    <input type="text" class="form-control" id="city" name="country" placeholder="Enter Country Name">
+                    <input type="text" class="form-control" id="city" name="country" placeholder="Enter Country Name" required="">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
@@ -51,15 +50,15 @@
                 </div>
                 <div class="form-group">
                     <label for="userName">Username</label>
-                    <input type="text" class="form-control" id="userName" name="username" placeholder="Password">
+                    <input type="text" class="form-control" id="userName" name="userName" placeholder="Username" required="">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="">
                 </div>
-                <button id="reg" type="submit"  class="btn btn-default">Submit</button>
+                <input type="submit" value="Register"/>
+                %{--<button id="reg" type="submit"  class="btn btn-default">Submit</button>--}%
             </g:form>
-        </form>
     </div>
 </div>
 </body>

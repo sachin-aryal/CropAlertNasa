@@ -1,7 +1,7 @@
 package nasacropalert
 
 class UserController {
-
+    static allowedMethods = [register: "POST", loginValidator: "POST", logout: "POST"]
     def index() {
     }
 
@@ -29,6 +29,7 @@ class UserController {
 
     }
     def register(){
+        println params
         String name=params.name
         String email=params.email
         String country=params.country
@@ -43,6 +44,7 @@ class UserController {
             render(view: 'index')
         }
         else{
+            println params
             def user=new User()
             user.name=name
             user.emailAddress=email
