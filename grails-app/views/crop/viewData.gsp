@@ -41,8 +41,6 @@
                 </tr>
             </thead>
             <tbody>
-
-
         <g:each in="${cropDetail}" var="crop">
             <tr>
                 <td>${crop.cropName}</td>
@@ -64,8 +62,6 @@
 <g:javascript>
     var myData=new Array();
     var data="${cropDetail.affected}".split(',');
-    %{--var semester="${disease}".split(',');--}%
-    %{--var examination="${pesticide}".split(',');--}%
     var i;
     var date
     date="${cropDetail.startDate})".split(',')
