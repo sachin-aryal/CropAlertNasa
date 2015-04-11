@@ -65,7 +65,6 @@
 	</div>
 </div>
 
-'
 <div class="container">
 	<ul class="nav nav-tabs">
 		<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>

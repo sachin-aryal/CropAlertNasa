@@ -13,7 +13,7 @@ class UserController {
             println("user id"+user.id)
             session.setAttribute("userId",user.id)
             session.setAttribute("userName",user.userName)
-            redirect(controller: 'crop', action: 'create')
+            redirect(controller:'crop', action: 'create')
         }else{
             render view:'index',model:['popUp',"login"]
         }
