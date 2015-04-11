@@ -79,6 +79,7 @@
 		<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'graph']" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'table']" data-toggle="tab"><i class="fa fa-table fa-2x"></i> Table</g:link></li>
+		<li><g:link controller="crop" action="create" data-toggle="tab"><i class="fa fa-info fa-2x"></i>Add Report</g:link></li>
 	</ul>
 </div>
 

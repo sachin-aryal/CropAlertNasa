@@ -1,6 +1,8 @@
 package nasacropalert
 
 class CommentsController {
+        def save(){
 
-        static scaffold  = true
+        }
+
 }

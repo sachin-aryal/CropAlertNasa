@@ -2,7 +2,8 @@ package nasacropalert
 
 class Comments {
     String comments
-    static belongsTo = ['crop':Crop]
+    String commentator
+    static belongsTo = ['crop':Crop,'user':User]
     static constraints = {
     }
 }

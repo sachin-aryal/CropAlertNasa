@@ -8,10 +8,6 @@ import grails.transaction.Transactional
 
 
 class CropController {
-
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-
     def show(Long id) {
         def cropInstance = Crop.get(id)
         def userTrue = false
@@ -31,10 +27,10 @@ class CropController {
         def userTrue=false
         if(session.getAttribute("userId")){
             userTrue=true
-            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail,cropDetailTotal:cropDetailTotal]
+            render view:'viewData',model:[userTrue: userTrue, ActionName:ActionName,cropDetail:cropDetail,cropDetailTotal:cropDetailTotal]
         }else{
             userTrue=false
-            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail,cropDetailTotal:cropDetailTotal]
+            render view:'viewData',model:[userTrue: userTrue,ActionName:ActionName,cropDetail:cropDetail,cropDetailTotal:cropDetailTotal]
         }
     }
     def create() {
@@ -75,12 +71,14 @@ class CropController {
 
     @Transactional
     def update(Crop cropInstance) {
+        println "Request getting here"
         if (cropInstance == null) {
             notFound()
             return
         }
 
         if (cropInstance.hasErrors()) {
+            println "Edit has error"
             respond cropInstance.errors, view: 'edit'
             return
         }
@@ -109,7 +107,7 @@ class CropController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Crop.label', default: 'Crop'), cropInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action: 'getData',params: [ActionName: "table"]
             }
             '*' { render status: NO_CONTENT }
         }
