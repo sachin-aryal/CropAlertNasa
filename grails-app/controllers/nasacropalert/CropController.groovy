@@ -19,22 +19,26 @@ class CropController {
     def show(Long id) {
         def cropInstance = Crop.get(id)
         def userTrue = false
-        if(session.getAttribute("userId")==id){
+        def validateUser = cropInstance?.userId
+        def userId = session.getAttribute("userId")
+        if(userId==validateUser){
             userTrue=true
         }
+        println cropInstance
         [cropInstance:cropInstance,userTrue: userTrue]
     }
     def getData(Integer max){
         params.max = Math.min(max ?: 10, 1000)
         def ActionName=params.Action
-        def cropDetail
+        def cropDetail = Crop.all
+        def cropDetailTotal = cropDetail.size()
         def userTrue=false
         if(session.getAttribute("userId")){
             userTrue=true
-            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.findByUser(User.findById(session.getAttribute("userId")),params),cropDetailTotal: Crop.findAllByUser(User.findById(session.getAttribute("userId"))).size(),userTrue:userTrue]
+            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail,cropDetailTotal:cropDetailTotal]
         }else{
             userTrue=false
-            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail=Crop.list(params),CropDetailTotal:Crop.list().size(),userTrue:userTrue]
+            render view:'viewData',model:[ActionName:ActionName,cropDetail:cropDetail,cropDetailTotal:cropDetailTotal]
         }
     }
     def create() {

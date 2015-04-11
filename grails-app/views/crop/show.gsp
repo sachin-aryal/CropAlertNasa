@@ -27,7 +27,7 @@
     </g:if>
 
       <g:fieldValue field="id" bean="${cropInstance}"/>
-         <img src = "${createLink(controller:'crop', action: 'imageShow', id:"${cropInstance.id}")}" width="300"/>
+         <img src = "${createLink(controller:'crop', action: 'imageShow', id:"${cropInstance?.id}")}" width="300"/>
         <div id="show-file" class="content scaffold-show" role="main">
             <h1><g:message code="default.show.label" args="[entityName]"/></h1>
                 <g:if test="${cropInstance?.image}">
@@ -37,6 +37,17 @@
                     </li>
                 </g:if>
 
+        <g:if test="${cropInstance?.cropName}">
+                <li class="fieldcontain">
+                    <span id="cropName-label" class="property-label"><g:message code="crop.cropName.label"
+                                                                                default="Crop Name"/></span>
+
+                    <span class="property-value" aria-labelledby="cropName-label"><g:fieldValue bean="${cropInstance}"
+                                                                                                field="cropName"/></span>
+
+                </li>
+            </g:if>
+
         <g:if test="${cropInstance?.affected}">
             <li class="fieldcontain">
                 <span id="affected-label" class="property-label"><g:message code="crop.affected.label"
@@ -44,17 +55,6 @@
 
                 <span class="property-value" aria-labelledby="affected-label"><g:fieldValue bean="${cropInstance}"
                                                                                             field="affected"/></span>
-
-            </li>
-        </g:if>
-
-        <g:if test="${cropInstance?.cropName}">
-            <li class="fieldcontain">
-                <span id="cropName-label" class="property-label"><g:message code="crop.cropName.label"
-                                                                            default="Crop Name"/></span>
-
-                <span class="property-value" aria-labelledby="cropName-label"><g:fieldValue bean="${cropInstance}"
-                                                                                            field="cropName"/></span>
 
             </li>
         </g:if>
@@ -125,7 +125,7 @@
             </li>
         </g:if>
 
-        <g:if test="${cropInstance?.user}">
+        %{--<g:if test="${cropInstance?.user}">
             <li class="fieldcontain">
                 <span id="user-label" class="property-label"><g:message code="crop.user.label" default="User"/></span>
 
@@ -133,7 +133,7 @@
                                                                                   id="${cropInstance?.user?.id}">${cropInstance?.user?.encodeAsHTML()}</g:link></span>
 
             </li>
-        </g:if>
+        </g:if>--}%
         <g:if test="${userTrue}">
             <g:form url="[resource: cropInstance, action: 'delete']" method="DELETE">
                 <fieldset class="buttons">
@@ -146,6 +146,10 @@
             </g:form>
         </g:if>
 
+            <g:form controller="comments" action="save">
+                <g:textField name="comment"/>
+                <g:submitButton name="Comment">Comment</g:submitButton>
+            </g:form>
 </div>
 </body>
 </html>

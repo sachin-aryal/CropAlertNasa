@@ -11,6 +11,7 @@ class Crop {
     byte[] image
     String description
     static belongsTo = ['user':User]
+    static hasMany = ['comments':Comments]
     static constraints = {
         image(maxSize: 904800)
     }
