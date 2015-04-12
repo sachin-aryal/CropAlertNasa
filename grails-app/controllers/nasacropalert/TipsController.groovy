@@ -24,6 +24,7 @@ class TipsController {
 }
     def getTips(Integer max){
         params.max = Math.min(max ?: 4, 5)
+        println Tips.list().cropName
         render view:'ExpertTips',model: [tipsList: Tips.list(params), tipsTotal:Tips.count()]
     }
     def addNewTips(){
@@ -33,6 +34,19 @@ class TipsController {
         def tips=new Tips(params)
         tips.save(flush: true)
         redirect(action: 'getTips')
+
+    }
+    def searchTips(Integer max){
+        params.max = Math.min(max ?: 4, 5)
+        String keyWord=params.keySearch
+        String wSearch=params.wSearch
+        def tipsList=new Tips()
+        if(wSearch.equalsIgnoreCase("disease")){
+            tipsList=Tips.findAllByDiseaseIlike('%'+keyWord+'%',params)
+        }else{
+            tipsList=Tips.findAllByCropNameIlike('%'+keyWord+'%',params)
+        }
+        render view:'searchResultTips',model: [tipsList: tipsList,totalTips:tipsList.size()]
 
     }
 }
