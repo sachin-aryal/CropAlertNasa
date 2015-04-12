@@ -20,7 +20,7 @@ class UserController {
             session.setAttribute("userId",user.id)
             session.setAttribute("userName",user.userName)
             session.setAttribute("Role","user")
-            redirect(action: 'userDashboard')
+            redirect(action: 'index')
         }
         else{
             flash.message="Invalid Username and Password do not match!!"

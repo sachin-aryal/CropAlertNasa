@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><g:layoutTitle default="Grails"/></title>
+	<title><g:layoutTitle default="Crop Alert"/></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/ico" href="images/favicon.ico">
 	<!-- Bootstrap -->
@@ -61,6 +61,7 @@
 			<div class="login-btn" id="login">
 				<g:if test="${session.getAttribute("userName")}">
 				<li class="pull-right" style="list-style: none;"><button class="btn btn-success" data-toggle="modal" data-target="#myModal"> <g:link controller="user" action="logout"> <span class="glyphicon glyphicon-log-in"></span> Logout</g:link></button></li>
+					<small style="color: #ffffff; margin-right: 10px;" class="pull-right">${session.getAttribute("userName")}</small>
 				</g:if>
 				<g:else>
 					<li class="pull-right" style="list-style: none; "><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
