@@ -80,13 +80,19 @@
 		<li><g:link controller="crop" action="getData" params="[Action:'graph']" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'table']" data-toggle="tab"><i class="fa fa-table fa-2x"></i> Table</g:link></li>
 		<li><g:link controller="crop" action="create" data-toggle="tab"><i class="fa fa-info-circle fa-2x"></i> Add Report</g:link></li>
+		<li><g:link controller="tips" action="getTips" data-toggle="tab"><i class="fa fa-user fa-2x"></i> Expert Tips</g:link></li>
 	</ul>
 </div>
 
-<footer id="footer">
-	CropAlert System &reg;
-</footer>
-
+<g:if test="${session.getAttribute("Role").equals("admin")}">
+	<div id="adminTips">
+<g:uploadForm controller="tips" action="index">
+<input type="file" name="data"/>
+	<input type="submit" value="submit">
+</g:uploadForm>
+	<g:link controller="tips" action="addNewTips">New Tips</g:link>
+	</div>
+</g:if>
 </body>
 </html>
 <g:layoutBody/>

@@ -64,3 +64,10 @@ footer{
 #content {
 	padding-bottom:100px; /* Height of the footer element */
 }
+.pagination-tips a{
+	margin: 3px;
+	font-weight: bold;
+}
+div#adminTips {
+	float: right;
+}
