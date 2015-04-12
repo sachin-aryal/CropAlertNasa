@@ -141,6 +141,14 @@
         <g:textField name="comment"/>
         <g:submitButton name="Comment">Comment</g:submitButton>
     </g:form>
+    <br><br>
+    <g:field name="Commentator" value="UserName" type="" readonly=""/>
+    <g:field name="Comments" value="Comments" type="" readonly=""/>
+    <br>
+    <g:each in="${comments}" var="comment">
+        <g:textArea name="comments" value="${comment.commentator}" readonly=""/>
+        <g:textArea name="comments" value="${comment.comments}" readonly=""/><br>
+    </g:each>
 </div>
 </body>
 </html>

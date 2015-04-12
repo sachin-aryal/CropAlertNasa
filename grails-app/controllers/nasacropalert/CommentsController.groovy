@@ -8,7 +8,7 @@ class CommentsController {
                 comments.comments=comment
                 comments.commentator=commentator
                 if(commentator.equalsIgnoreCase("admin")){
-                        comments.user=User.findByUserName(commentator)
+                        comments.user=User.findById(4)
                 }else if(commentator.equalsIgnoreCase("Anonymous")){
                         comments.user=User.findById(1)
                 }else{
@@ -16,6 +16,15 @@ class CommentsController {
                 }
                 comments.crop=Crop.findById(params.cropId)
                 comments.save(flush: true)
+                def cropInstance = Crop.get(params.cropId)
+                def userTrue = false
+                def validateUser = cropInstance?.userId
+                def userId = session.getAttribute("userId")
+                if(userId==validateUser){
+                        userTrue=true
+                }
+                comments=Comments.findAllByCrop(Crop.findById(params.cropId))
+                render view:'/crop/show',model: [cropInstance:cropInstance,userTrue: userTrue,comments:comments]
 
         }
 

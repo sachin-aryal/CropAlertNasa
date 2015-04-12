@@ -16,8 +16,9 @@ class CropController {
         if(userId==validateUser){
             userTrue=true
         }
-        println cropInstance
-        [cropInstance:cropInstance,userTrue: userTrue]
+        def comments=new Comments()
+        comments=Comments.findAllByCrop(Crop.findById(id))
+        [cropInstance:cropInstance,userTrue: userTrue,comments:comments]
     }
     def getData(Integer max){
         params.max = Math.min(max ?: 10, 1000)
