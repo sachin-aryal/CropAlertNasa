@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 style="text-align: center;">Fill up the form to register</h1>
+    <h1 style="font-weight: bold;">Fill up the form to register</h1>
     <div class="registrationForm">
             <g:form controller="user" action="register" method="post" >
 
@@ -56,7 +56,7 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="">
                 </div>
-                <input type="submit" value="Register"/>
+                <input type="submit" class="btn btn-primary" value="Register"/>
                 %{--<button id="reg" type="submit"  class="btn btn-default">Submit</button>--}%
             </g:form>
     </div>

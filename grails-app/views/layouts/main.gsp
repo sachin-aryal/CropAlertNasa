@@ -33,7 +33,7 @@
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top wet-asphalt">
-	<div class="container">
+	<div>
 		<g:if test="${session.getAttribute("Role")}">
 			<g:if test="${session.getAttribute("Role").equals("admin")}">
 				<g:link controller="user" action="adminDashboard" class="navbar-brand"><img src="${resource(dir: 'images', file: 'Crop_Alert.gif')}" height="36px"/></g:link>
@@ -66,8 +66,8 @@
 				<li class="pull-right" style="list-style: none;"><button class="btn btn-success" data-toggle="modal" data-target="#myModal"> <g:link controller="user" action="logout"> <span class="glyphicon glyphicon-log-in"></span> Logout</g:link></button></li>
 				</g:if>
 				<g:else>
-					<li class="pull-right" style="list-style: none; margin-right: 10px;"><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
-					<li class="pull-right" style="list-style: none;"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
+					<li class="pull-right" style="list-style: none; "><g:link controller="user" action="login" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</g:link></li>
+					<li class="pull-right" style="list-style: none;margin-right: 10px;"><g:link controller="user" action="signUp" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Register</g:link></li>
 				</g:else>
 			</div>
 		</div> <!--navigation end -->
@@ -79,7 +79,7 @@
 		<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'graph']" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</g:link></li>
 		<li><g:link controller="crop" action="getData" params="[Action:'table']" data-toggle="tab"><i class="fa fa-table fa-2x"></i> Table</g:link></li>
-		<li><g:link controller="crop" action="create" data-toggle="tab"><i class="fa fa-info fa-2x"></i>Add Report</g:link></li>
+		<li><g:link controller="crop" action="create" data-toggle="tab"><i class="fa fa-info-circle fa-2x"></i> Add Report</g:link></li>
 	</ul>
 </div>
 
