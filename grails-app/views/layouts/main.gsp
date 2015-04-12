@@ -9,6 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><g:layoutTitle default="Grails"/></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/ico" href="images/favicon.ico">
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
@@ -56,10 +57,6 @@
 		<!-- navigation menu -->
 		<div class="collapse navbar-collapse navHeaderCollapse">
 			<ul class="nav navbar-nav navbar-left">
-				<li class="active"><a href="#" > Home</a></li>
-				<li><a href="#"> Blog</a></li>
-				<li><a href="#"> About</a></li>
-				<li><a href="#"> Contact</a></li>
 			</ul>
 			<div class="login-btn" id="login">
 				<g:if test="${session.getAttribute("userName")}">
