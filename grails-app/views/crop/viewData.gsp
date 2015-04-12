@@ -101,12 +101,12 @@ myChart.setTextPaddingBottom(12);
 myChart.setLineSpeed(90);
 myChart.setLineWidth(3);
     %{--myChart.setBackgroundImage('path/background.jpg');--}%
-        for(i=0;i<16;i++){
-        if(data[i]!=null){
-        myChart.setTooltip([i+1,semester[i].replace('[', '').replace(']', '')+"->"+examination[i].replace('[', '')
-                        .replace(']', '')+" Percentage:"+data[i].replace('[', '').replace(']','')]);
-                    }
-                }
+        %{--for(i=0;i<16;i++){--}%
+        %{--if(data[i]!=null){--}%
+        %{--myChart.setTooltip([i+1,semester[i].replace('[', '').replace(']', '')+"->"+examination[i].replace('[', '')--}%
+                        %{--.replace(']', '')+" Percentage:"+data[i].replace('[', '').replace(']','')]);--}%
+                    %{--}--}%
+                %{--}--}%
             myChart.setTooltipBackground('#fff');
             myChart.setTooltipFontSize(18);
             //myChart.setTooltipSize(14);
