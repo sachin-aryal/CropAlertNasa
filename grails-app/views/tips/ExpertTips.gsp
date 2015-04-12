@@ -25,6 +25,15 @@
         <input type="submit" value="search"/>
     </g:form>
     </div>
+    <g:if test="${session.getAttribute("Role").equals("admin")}">
+        <div id="adminTips">
+            <g:uploadForm controller="tips" action="index">
+                <input type="file" name="data"/>
+                <input type="submit" value="submit">
+            </g:uploadForm>
+            <g:link controller="tips" action="addNewTips">New Tips</g:link>
+        </div>
+    </g:if>
     <table class="table table-responsive table-bordered table-striped table-hover">
         <thead style="font-weight: bold;">
         <th>Crop Name</th>
