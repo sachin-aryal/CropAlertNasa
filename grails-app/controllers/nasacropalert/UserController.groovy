@@ -19,6 +19,7 @@ class UserController {
         else if(user){
             session.setAttribute("userId",user.id)
             session.setAttribute("userName",user.userName)
+            session.setAttribute("Role","user")
             redirect(action: 'userDashboard')
         }
         else{

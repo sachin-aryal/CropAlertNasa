@@ -35,7 +35,8 @@ class CropController {
         }
     }
     def create() {
-        respond new Crop(params)
+        def cropInstance= new Crop(params)
+        [cropInstance: cropInstance]
     }
     def imageShow(){
         def imageInstance = Crop.get(params.id)
@@ -54,7 +55,7 @@ class CropController {
             respond cropInstance.errors, view: 'create'
             return
         }
-
+        println params
         cropInstance.save flush: true
 
         request.withFormat {

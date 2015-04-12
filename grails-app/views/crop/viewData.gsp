@@ -85,7 +85,7 @@ myChart.setAxisValuesNumberX(data.length);
 //myChart.setAxisValuesNumberY(10);
 myChart.setAxisValuesColor('#38a4d9');
 myChart.setAxisColor('#38a4d9');
-myChart.setLineColor('#1c4877');
+myChart.setLineColor('#8D9386');
 myChart.setTitle('Disease Analysis');
 myChart.setTitleFontSize(20);
 myChart.setTitleColor("#1c4877");
@@ -99,7 +99,7 @@ myChart.setAxisPaddingBottom(45);
 myChart.setTextPaddingLeft(105);
 myChart.setTextPaddingBottom(12);
 myChart.setLineSpeed(90);
-myChart.setLineWidth(3);
+myChart.setLineWidth(4);
     %{--myChart.setBackgroundImage('path/background.jpg');--}%
         %{--for(i=0;i<16;i++){--}%
         %{--if(data[i]!=null){--}%

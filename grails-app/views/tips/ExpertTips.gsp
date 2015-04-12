@@ -25,7 +25,8 @@
         <input type="submit" value="search"/>
     </g:form>
     </div>
-    <g:if test="${session.getAttribute("Role").equals("admin")}">
+    <g:if test="${session.getAttribute("userName")}">
+    <g:if test="${session.getAttribute("userName").equals("Admin")}">
         <div id="adminTips">
             <g:uploadForm controller="tips" action="index">
                 <input type="file" name="data"/>
@@ -33,6 +34,7 @@
             </g:uploadForm>
             <g:link controller="tips" action="addNewTips">New Tips</g:link>
         </div>
+    </g:if>
     </g:if>
     <table class="table table-responsive table-bordered table-striped table-hover">
         <thead style="font-weight: bold;">
