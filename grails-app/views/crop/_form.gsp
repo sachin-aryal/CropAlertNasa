@@ -1,7 +1,10 @@
 <%@ page import="nasacropalert.Crop" %>
 <div class="container">
+    <h1 style="font-weight: bold;">Fill up the form</h1>
+    <hr>
     <div class="row">
         <div class="col-lg-4 container">
+
             <div class="form-group fieldcontain ${hasErrors(bean: cropInstance, field: 'cropName', 'error')} ">
                 <label for="cropName">
                     <g:message code="crop.cropName.label" default="Crop Name"/>
@@ -24,7 +27,7 @@
 
                 </label>
                 <g:textField name="affected" class="form-control" id="affected" value="${cropInstance?.affected}"/>
-            </div
+            </div>
 
             <div class="form-group fieldcontain ${hasErrors(bean: cropInstance, field: 'pesticide', 'error')} ">
                 <label for="pesticide">
@@ -34,6 +37,7 @@
                 <g:textField name="pesticide" class="form-control" id="pesticide" value="${cropInstance?.pesticide}"/>
 
             </div>
+
             <div class="form-group fieldcontain ${hasErrors(bean: cropInstance, field: 'improve', 'error')} ">
                 <label for="improve">
                     <g:message code="crop.improve.label" default="Improve"/>
@@ -41,6 +45,7 @@
                 </label>
                 <g:textField name="improve" class="form-control" id="improve" value="${cropInstance?.improve}"/>
             </div>
+
             <div class="form-group fieldcontain ${hasErrors(bean: cropInstance, field: 'location', 'error')} ">
                 <label for="location">
                     <g:message code="crop.location.label" default="Location"/>
@@ -50,7 +55,6 @@
 
             </div>
 
-
             <div class="form-group fieldcontain ${hasErrors(bean: cropInstance, field: 'startDate', 'error')} required">
                 <label for="startDate">
                     <g:message code="crop.startDate.label" default="Start Date"/>
@@ -59,7 +63,6 @@
                 <g:datePicker name="startDate" class="form-control" id="startDate" precision="day" value="${cropInstance?.startDate}"/>
 
             </div>
-
 
             <div class="form-group fieldcontain ${hasErrors(bean: cropInstance, field: 'image', 'error')} required">
                 <label for="image">
@@ -80,7 +83,7 @@
                 <g:textArea name="description" class="form-control" id="description" value="${cropInstance?.description}"/>
 
             </div>
-            <g:hiddenField name="sachin">
+            <g:hiddenField name="hidden">
             <g:if test="${session.getAttribute("userId")}" >
                 <div class="fieldcontain ${hasErrors(bean: cropInstance, field: 'user', 'error')} required">
                     <label for="user">
