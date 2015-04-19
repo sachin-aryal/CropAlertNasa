@@ -57,6 +57,9 @@
 		<!-- navigation menu -->
 		<div class="collapse navbar-collapse navHeaderCollapse">
 			<ul class="nav navbar-nav navbar-left">
+				<li class="active"><button class="btn btn-primary" role="presentation"><a> English</a></button></li>
+				<li class="active"><button class="btn btn-primary"> Nepali</button></li>
+
 			</ul>
 			<div class="login-btn" id="login">
 				<g:if test="${session.getAttribute("userName")}">
@@ -74,9 +77,9 @@
 
 <div class="container">
 	<ul class="nav nav-tabs">
-		<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>
-		<li><g:link controller="crop" action="getData" params="[Action:'graph']" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</g:link></li>
+		%{--<li class="active"><g:link controller="crop" action="getData" params="[Action:'map']" data-toggle="tab"><i class="fa fa-globe fa-2x"></i> Maps</g:link></li>--}%
 		<li><g:link controller="crop" action="getData" params="[Action:'table']" data-toggle="tab"><i class="fa fa-table fa-2x"></i> Table</g:link></li>
+		<li><g:link controller="crop" action="getData" params="[Action:'graph']" data-toggle="tab"><i class="fa fa-bar-chart fa-2x"></i> Graphs</g:link></li>
 		<li><g:link controller="crop" action="create" data-toggle="tab"><i class="fa fa-info-circle fa-2x"></i> Add Report</g:link></li>
 		<li><g:link controller="tips" action="getTips" data-toggle="tab"><i class="fa fa-user fa-2x"></i> Expert Tips</g:link></li>
 	</ul>

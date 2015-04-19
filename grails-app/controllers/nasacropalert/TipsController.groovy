@@ -1,7 +1,5 @@
 package nasacropalert
-
 import jxl.LabelCell
-import jxl.NumberCell
 import jxl.Sheet
 import jxl.Workbook
 
@@ -24,7 +22,7 @@ class TipsController {
 }
     def getTips(Integer max){
         params.max = Math.min(max ?: 4, 5)
-        println Tips.list().cropName
+        /*println Tips.list().cropName*/
         render view:'ExpertTips',model: [tipsList: Tips.list(params), tipsTotal:Tips.count()]
     }
     def addNewTips(){

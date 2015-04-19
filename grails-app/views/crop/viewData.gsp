@@ -15,17 +15,17 @@
 <body>
 <div class="container">
     <br>
-    <g:if test="${ActionName.equals("map")}">
+    %{--<g:if test="${ActionName.equals("map")}">
         <span class="glyphicon glyphicon-info-sign" style="color: green;"></span> <label class="text text-info">Click below link to view the map</label>
         <div id="map">
             <button class="btn btn-success"> <h1><a href="${g.resource(file:'index.html')}"  style="text-decoration: none;">MAP</a></h1></button>
         </div>
-    </g:if>
-    <g:elseif test="${ActionName.equals("graph")}">
-        <div id="Chart">
+    </g:if>--}%
+    <g:if test="${ActionName.equals("graph")}">
+        <div id="Chart" class="col-lg-6">
 
         </div>
-    </g:elseif>
+    </g:if>
     <g:else>
         <div id="tableData">
             <table class="table table-responsive table-hover table-condensed table-bordered" style="overflow: scroll">

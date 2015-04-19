@@ -8,7 +8,7 @@
 
 <body>
 <div class="container">
-    <g:fieldValue field="id" bean="${cropInstance}"/>
+
     <img class="img img-thumbnail img-responsive" src = "${createLink(controller:'crop', action: 'imageShow', id:"${cropInstance?.id}")}" width="300"/>
     <div id="show-file" class="content scaffold-show" role="main" style="list-style:none;">
         <g:if test="${cropInstance?.image}">
@@ -150,10 +150,17 @@
         <i>Comments</i>
         <hr>
         <g:each in="${comments}" var="comment">
-            <g:textField name="comments" value="${comment.commentator}" readonly=""/>
-            <g:textField name="comments" value="${comment.comments}" readonly=""/><br>
+            <g:textField name="comments" value="${comment.commentator}" readonly=""/><br>
+            <g:textArea style="height: 200px; width: 300px;" name="comments" value="${comment.comments}" readonly=""/><br>
         </g:each>
     </div>
+</div>
+
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 </body>
 </html>
